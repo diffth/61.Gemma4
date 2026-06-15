@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTP 측정 시스템 | 당신의 비즈니스가 놓친 가치</title>
+    <!-- Google Fonts: Montserrat (Headline), Inter (Body) 사용 가정 -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <!-- 로컬 스타일시트 연결 (CSS 변수와 구조가 여기서 관리됩니다.) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- [Section 1: The Shock Hook] - 문제 제기 / 충격적 질문 -->
+    <header class="section-shock p-global">
+        <div class="container text-center">
+            <!-- H1: Electric Red로 강렬한 시선 유도 -->
+            <h1 class="headline h1 shock-hook">
+                ⚡️ 웹사이트 제작에 필요한 '시간'과 '돈', 둘 중 무엇을 가장 많이 버리고 계십니까?
+            </h1>
+            <!-- Sub-headline (Pain Point Validation) -->
+            <p class="sub-headline lead-text mt-30">
+                대부분의 1인 창업자는 코딩 학습, 수십 개의 플러그인 선택, 끝없는 자료 조사라는 **‘정보 과부하 함정’**에 빠져 있습니다. 그 과정에서 가장 비싼 비용은 바로 ‘실행할 타이밍’을 놓치는 것입니다.
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <!-- [Section 2: Pain Point Deep Dive] - 문제점 심화 및 의구심 유발 -->
+        <section class="section-pain p-global">
+            <div class="container">
+                <h2 class="headline h2 mb-40 text-center secondary-blue">🤔 당신의 '프로젝트 노트'는 시장의 요구인가요?</h2>
+
+                <!-- Question A: 계획과 실행의 분리 자극 -->
+                <div class="card p-30 bg-dark-secondary border-left-red">
+                    <h3>"나만의 로드맵"을 그리고 계십니까? 아니면 그저 '멋있어 보이는 기능' 목록을 만들고 계신가요?</h3>
+                    <p class="mt-15 text-gray-400">🚨 **문제점**: 계획만 있고 실행이 안 되는 상태를 자극합니다. 이 간극을 지적해야 합니다.</p>
+                </div>
+
+                <!-- Question B: 착각의 비용 (Input Form 도입) -->
+                <div class="card p-30 bg-dark-secondary mt-40">
+                    <h3>[진단] 당신의 현재 비즈니스 문제점을 한 문장으로 정의해주세요.</h3>
+                    <p class="sub-headline mb-20 text-gray-400">이 입력창에 적는 단 하나의 문장이, 수백 페이지의 계획보다 가치가 높습니다.</p>
+
+                    <!-- 🚨 핵심 기능: Problem Input Field -->
+                    <form id="wtp-calculator-form" class="input-group">
+                        <textarea id="problem-statement" placeholder="예: 잠재 고객들이 어떤 정보를 가장 궁금해하는지 모릅니다." rows="4" required></textarea>
+                        <button type="submit" id="calculate-btn" class="cta-button primary-red">✅ WTP 측정 리포트 받기 (무료)</button>
+                    </form>
+
+                    <!-- 결과 메시지 표시 영역 -->
+                    <div id="result-message" class="mt-30 p-2 text-center hidden"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- [Section 3: The Solution Introduction] - 해결책 제시 및 CTA 최종 마무리 -->
+        <section class="section-solution p-global bg-dark-primary border-top-red">
+            <div class="container text-center">
+                <h2 class="headline h2 solution-hook mb-20 secondary-blue">✨ 완벽한 '구축'보다, 가장 빠르고 정확하게 시장의 반응을 읽는 것이 생존입니다.</h2>
+
+                <p class="sub-headline max-w-xl mx-auto text-lg mb-30">
+                    저희는 당신이 필요로 하는 것은 코딩 교육이 아니라, **가장 적은 노력으로 최대의 지불 의사(WTP)를 측정하는 시스템**임을 압니다.
+                </p>
+
+                <!-- Final CTA Button (재강조) -->
+                <button class="cta-button primary-red final-cta">🛑 더 이상 추측하지 마세요. 지금 바로, 당신 비즈니스의 진정한 '지불 가능 가치'를 측정해 보세요.</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container text-center p-10 mt-50">
+            &copy; 2026 ozs/1인 크리에이터. All Rights Reserved. | Developed by Codari Engineer Agent.
+        </div>
+    </footer>
+
+    <!-- JavaScript 로직: API 통신 및 동적 UI 처리 -->
+    <script src="script.js"></script>
+</body>
+</html>
