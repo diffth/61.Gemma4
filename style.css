@@ -1,0 +1,160 @@
+/* ⚙️ 코다리: CSS 변수와 모듈화에 집중했습니다. 이 구조는 향후 디자인 수정 시 신속한 대응을 보장합니다. */
+
+/* =========================================
+   1. 글로벌 스타일 및 컬러 팔레트 (V2.0)
+   ========================================= */
+:root {
+    /* Color Palette */
+    --color-deep-navy: #0A1931; /* Primary BG */
+    --color-electric-red: #FF4136; /* Accent/Alert/CTA */
+    --color-secondary-blue: #3A506B; /* Secondary Structure */
+    --color-text-light: #EAEAEA; /* Off-White Text */
+    --color-bg-dark-secondary: #14294c; /* Card/Section Background */
+
+    /* Typography Fallbacks (Fallback for local development) */
+    --font-headline: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* 기본 초기화 및 다크 모드 설정 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-deep-navy);
+    color: var(--color-text-light);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+/* =========================================
+   2. 컴포넌트 스타일링 (Components)
+   ========================================= */
+
+/* 컨테이너 및 공통 요소 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem; /* 좌우 패딩 확보 */
+}
+.text-center { text-align: center; }
+
+/* 헤드라인 스타일 (Montserrat) */
+.headline {
+    font-family: var(--font-headline);
+    font-weight: 900;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em; /* 글자 간격 조절로 무게감 부여 */
+}
+/* H1 (Shock Hook) */
+.h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    line-height: 1.1;
+    color: var(--color-electric-red); /* 전용 색상 사용 */
+}
+/* H2 (Section Divider) */
+.h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 3rem;
+    color: var(--color-secondary-blue);
+}
+
+/* CTA 버튼 스타일링 - 가장 중요! */
+.cta-button {
+    background-color: var(--color-electric-red);
+    color: white;
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    font-family: var(--font-headline);
+    /* 그림자 효과로 버튼의 '클릭 가능함'을 강조 */
+    box-shadow: 0 4px 15px rgba(255, 65, 54, 0.3);
+}
+.cta-button:hover {
+    background-color: #ff6b59; /* Hover 시 약간 부드러운 빨강 */
+    transform: translateY(-2px);
+}
+
+/* 섹션별 스타일 */
+.p-global {
+    padding: 8rem 0; /* 충분한 여백 확보 (권위적인 느낌) */
+}
+.section-shock {
+    background-color: var(--color-deep-navy);
+    padding-top: 12rem; /* 최상단 영역은 더 크게 잡습니다 */
+    padding-bottom: 8rem;
+}
+.section-pain {
+    background-color: #0A1931; /* Deep Navy 유지 */
+}
+.section-solution {
+    background-color: var(--color-deep-navy);
+    border-top: 5px solid var(--color-electric-red); /* 충격적인 경계선 */
+}
+
+/* 카드 및 박스 디자인 (진장감 조성) */
+.card {
+    background-color: var(--color-bg-dark-secondary);
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* 특정 색상 강조 */
+.border-left-red {
+    border-left: 6px solid var(--color-electric-red);
+}
+
+/* =========================================
+   3. 레이아웃 및 폼 스타일 (Layout & Form)
+   ========================================= */
+
+/* 입력 그룹 컨테이너 */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+#problem-statement, .cta-button {
+    width: 100%; /* 부모 요소에 맞춰 폭을 채움 */
+}
+/* 텍스트 영역 스타일 */
+textarea {
+    padding: 15px;
+    font-size: 1rem;
+    border: 2px solid var(--color-secondary-blue);
+    background-color: #0e2340; /* 입력 필드 배경을 약간 더 어둡게 처리 */
+    color: var(--color-text-light);
+    resize: vertical; /* 세로 크기만 조절 가능하게 */
+}
+
+/* 반응형 디자인 (Mobile First 고려) */
+@media (max-width: 768px) {
+    .p-global {
+        padding: 4rem 0;
+    }
+    .h1 {
+        font-size: 2.5rem; /* 모바일에서 과도하게 커지는 것 방지 */
+    }
+    .cta-button {
+        width: 100%; /* 버튼은 항상 폭 전체를 사용 */
+        padding: 1rem 0;
+        font-size: 1.1rem;
+    }
+    /* 모든 패딩을 줄여서 모바일 가독성을 확보합니다. */
+    .card {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* 유틸리티 클래스 (간결함을 위해 추가) */
+.mt-30 { margin-top: 3rem !important; }
+.mb-40 { margin-bottom: 4rem !important; }
+.text-gray-400 { color: #a0b9d5; } /* 좀 더 은은한 회색 */
+
+</style>
